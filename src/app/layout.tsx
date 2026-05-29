@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Kinjal Rathod Portfolio",
     images: [
       {
-        url: "/assets/hero.png",
+        url: "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png",
         width: 1200,
         height: 630,
         alt: "Kinjal Rathod Portfolio Showcase",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kinjal Rathod | AI & ML Engineer & Autonomous Agents Specialist",
     description: "Explore the professional portfolio of Kinjal Rathod, specializing in RAG, Agentic Loops, and Machine Learning models.",
-    images: ["/assets/hero.png"],
+    images: ["https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png"],
     creator: "@kinjalr7",
   },
   robots: {
