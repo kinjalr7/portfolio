@@ -19,8 +19,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Kinjal Rathod" }],
   creator: "Kinjal Rathod",
+  publisher: "Kinjal Rathod",
   alternates: {
     canonical: "/",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
     title: "Kinjal Rathod | AI & ML Engineer Portfolio",
@@ -64,30 +70,54 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kinjal Rathod",
-    "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
-    "sameAs": [
-      "https://github.com/kinjalr7",
-      "https://www.linkedin.com/in/kinjalrathod2908/"
-    ],
-    "jobTitle": "AI & ML Specialist",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "LDRP Institute of Technology and Research",
-      "sameAs": "https://www.ldrp.ac.in"
-    },
-    "description": "Information Technology student specializing in RAG architectures, multi-agent frameworks, time-series forecasting, and rich interface developments.",
-    "knowsAbout": [
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Deep Learning",
-      "Natural Language Processing",
-      "Retrieval-Augmented Generation (RAG)",
-      "Autonomous AI Agents",
-      "Python Software Development",
-      "Time-Series Forecasting",
-      "Next.js & React Web Engineering"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person",
+        "name": "Kinjal Rathod",
+        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+        "image": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png",
+        "sameAs": [
+          "https://github.com/kinjalr7",
+          "https://www.linkedin.com/in/kinjalrathod2908/"
+        ],
+        "jobTitle": "AI & ML Specialist",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "LDRP Institute of Technology and Research",
+          "sameAs": "https://www.ldrp.ac.in"
+        },
+        "description": "Information Technology student specializing in RAG architectures, multi-agent frameworks, time-series forecasting, and rich interface developments.",
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "Machine Learning",
+          "Deep Learning",
+          "Natural Language Processing",
+          "Retrieval-Augmented Generation (RAG)",
+          "Autonomous AI Agents",
+          "Python Software Development",
+          "Time-Series Forecasting",
+          "Next.js & React Web Engineering"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#website",
+        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+        "name": "Kinjal Rathod Portfolio",
+        "publisher": {
+          "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#profilepage",
+        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+        "name": "Kinjal Rathod | AI & ML Engineer & Autonomous Agents Specialist",
+        "about": {
+          "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person"
+        }
+      }
     ]
   };
 
