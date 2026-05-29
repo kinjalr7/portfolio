@@ -88,7 +88,7 @@ const NeuralNetworkCanvas = () => {
       x: number; // local coordinates on unit sphere
       y: number;
       z: number;
-      
+
       // Floating wave animation noise offsets
       noiseOffsetX: number;
       noiseOffsetY: number;
@@ -99,7 +99,7 @@ const NeuralNetworkCanvas = () => {
         // Distribute points evenly on a 3D sphere using the golden ratio Fibonacci spiral method
         const phi = Math.acos(1 - 2 * (index + 0.5) / total);
         const theta = Math.PI * (1 + 5 ** 0.5) * index;
-        
+
         const radius = 145; // Base radius of the holographic sphere
         this.x = radius * Math.sin(phi) * Math.cos(theta);
         this.y = radius * Math.sin(phi) * Math.sin(theta);
@@ -122,7 +122,7 @@ const NeuralNetworkCanvas = () => {
       progress: number;
       speed: number;
     }
-    
+
     let activeSignals: Signal[] = [];
     const maxSignals = 6;
 
@@ -300,7 +300,7 @@ const NeuralNetworkCanvas = () => {
           if (dist3D < 120) {
             // Distance fading calculation
             let alpha = 1 - dist3D / 120;
-            
+
             // Fading back nodes for realistic depth of field
             const meanZ = (p1.z + p2.z) / 2;
             const depthFactor = Math.max(0.18, Math.min(1.0, 1 - (meanZ + 145) / 290));
@@ -318,7 +318,7 @@ const NeuralNetworkCanvas = () => {
       // 4. Update and Render Action Potential Electrical Signals
       activeSignals.forEach((sig) => {
         sig.progress += sig.speed;
-        
+
         // At link destination, route signal along a new connected path
         if (sig.progress >= 1.0) {
           sig.progress = 0;
@@ -329,7 +329,7 @@ const NeuralNetworkCanvas = () => {
           } else {
             sig.from = Math.floor(Math.random() * nodes.length);
             const fallbackPossibles = adjList[sig.from];
-            sig.to = fallbackPossibles && fallbackPossibles.length > 0 
+            sig.to = fallbackPossibles && fallbackPossibles.length > 0
               ? fallbackPossibles[Math.floor(Math.random() * fallbackPossibles.length)]
               : Math.floor(Math.random() * nodes.length);
           }
@@ -366,7 +366,7 @@ const NeuralNetworkCanvas = () => {
         const radius = Math.max(1.2, (2.6 + Math.sin(p.z * 0.015) * 0.8) * p.scale);
         const zFactor = (p.z + 145) / 290; // 0 (front) to 1 (back) range
         const alpha = Math.max(0.18, Math.min(0.95, 1 - zFactor));
-        
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, radius, 0, Math.PI * 2);
 
@@ -379,7 +379,7 @@ const NeuralNetworkCanvas = () => {
           // Background particles: Faded dark golden elements
           ctx.fillStyle = `rgba(212, 175, 55, ${alpha * 0.82})`;
         }
-        
+
         ctx.fill();
         ctx.shadowBlur = 0; // reset shadows
       });
@@ -389,7 +389,7 @@ const NeuralNetworkCanvas = () => {
       const coreScale = fov / (fov + coreZ);
       const coreX = width / 2;
       const coreY = height / 2;
-      
+
       const pulseRadius = (18 + Math.sin(Date.now() * 0.0016) * 4) * coreScale;
       const gradient = ctx.createRadialGradient(coreX, coreY, 0, coreX, coreY, pulseRadius);
       gradient.addColorStop(0, "rgba(255, 235, 150, 0.28)");
@@ -877,7 +877,7 @@ const StockChartTelemetry = () => (
       <line x1="0" y1="50" x2="300" y2="50" stroke="rgba(212, 175, 55, 0.06)" strokeWidth="1" />
       <line x1="0" y1="80" x2="300" y2="80" stroke="rgba(212, 175, 55, 0.06)" strokeWidth="1" />
       <line x1="0" y1="110" x2="300" y2="110" stroke="rgba(212, 175, 55, 0.06)" strokeWidth="1" />
-      
+
       {/* Historical Data path */}
       <path
         d="M 0,90 Q 30,110 60,80 T 120,70 T 180,85"
@@ -885,7 +885,7 @@ const StockChartTelemetry = () => (
         strokeWidth="2"
         strokeLinecap="round"
       />
-      
+
       {/* Diverging Forecast ARIMA (dotted) */}
       <path
         d="M 180,85 Q 210,105 240,110 T 300,115"
@@ -895,7 +895,7 @@ const StockChartTelemetry = () => (
         strokeLinecap="round"
         className="arima-path"
       />
-      
+
       {/* Diverging Forecast Prophet (dashed) */}
       <path
         d="M 180,85 Q 210,75 240,60 T 300,45"
@@ -905,7 +905,7 @@ const StockChartTelemetry = () => (
         strokeLinecap="round"
         className="prophet-path"
       />
-      
+
       {/* Diverging Forecast LSTM (solid gold glow) */}
       <path
         d="M 180,85 Q 210,65 240,40 T 300,25"
@@ -921,17 +921,17 @@ const StockChartTelemetry = () => (
       {/* Split/Forecast Point Indicator */}
       <circle cx="180" cy="85" r="4" fill="#030303" stroke="var(--accent-gold-light)" strokeWidth="2" />
       <circle cx="180" cy="85" r="8" stroke="var(--accent-gold)" strokeWidth="1" className="ping-dot" style={{ transformOrigin: "180px 85px" }} />
-      
+
       {/* Active prediction tracking dot */}
       <circle cx="300" cy="25" r="3.5" fill="var(--accent-gold-light)" />
-      
+
       {/* Dynamic forecast bounds envelope (shadow area) */}
       <path
         d="M 180,85 Q 210,65 240,40 T 300,25 L 300,115 T 240,110 Q 210,105 180,85 Z"
         fill="rgba(212, 175, 55, 0.015)"
       />
     </svg>
-    
+
     {/* Micro labels */}
     <div className="telemetry-labels">
       <span className="tel-label arima">ARIMA</span>
@@ -947,20 +947,20 @@ const AgentLoopTelemetry = () => (
       {/* Center Core Hub */}
       <circle cx="80" cy="80" r="16" fill="rgba(212, 175, 55, 0.02)" stroke="rgba(212, 175, 55, 0.1)" strokeWidth="1" strokeDasharray="3 2" />
       <circle cx="80" cy="80" r="4" fill="var(--accent-gold-light)" />
-      
+
       {/* Loop Orbit Paths */}
       <circle cx="80" cy="80" r="50" stroke="rgba(212, 175, 55, 0.08)" strokeWidth="1.5" />
-      
+
       {/* Orbiting Pulsing Signal Spark */}
       <circle cx="80" cy="80" r="50" stroke="url(#gold-gradient-orbit)" strokeWidth="3" strokeDasharray="20 294" strokeLinecap="round" className="orbit-signal" style={{ transformOrigin: "80px 80px" }} />
-      
+
       {/* Planner Node */}
       <g className="agent-node" transform="translate(80, 30)">
         <circle cx="0" cy="0" r="15" fill="#060606" stroke="rgba(212, 175, 55, 0.25)" strokeWidth="1.5" />
         <circle cx="0" cy="0" r="12" fill="rgba(212, 175, 55, 0.04)" className="node-glow" />
         <text x="0" y="3" fontSize="8" fill="var(--accent-gold-light)" fontWeight="bold" textAnchor="middle" fontFamily="var(--font-display)">PLAN</text>
       </g>
-      
+
       {/* Executor Node */}
       <g className="agent-node" transform="translate(123, 105)">
         <circle cx="0" cy="0" r="15" fill="#060606" stroke="rgba(212, 175, 55, 0.25)" strokeWidth="1.5" />
@@ -999,7 +999,7 @@ const ScraperQueueTelemetry = () => (
         <span className="token-dot active cooldown"></span>
       </div>
     </div>
-    
+
     {/* Concurrency Threads */}
     <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
       <div className="scraper-thread">
@@ -1076,7 +1076,7 @@ export default function Home() {
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   // Profile Photo States
-  const [profileImg, setProfileImg] = useState("/assets/profile.png");
+  const [profileImg, setProfileImg] = useState("/assets/profile.jpg");
   const [imageError, setImageError] = useState(false);
 
   // Tracking Global Mouse Positions for Spotlight
@@ -1206,7 +1206,7 @@ export default function Home() {
         "Web3Forms Access Key is not configured. Falling back to simulated successful transmit for demo purposes. " +
         "Please create a .env.local file in your workspace root and add: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_key_here"
       );
-      
+
       // Simulate successful submission for demonstration
       setTimeout(() => {
         setFormStatus("success");
@@ -1571,7 +1571,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  Hi, I'm <strong style={{ color: "var(--accent-gold-light)", fontWeight: 600 }}>Kinjal Rathod</strong>. 
+                  Hi, I'm <strong style={{ color: "var(--accent-gold-light)", fontWeight: 600 }}>Kinjal Rathod</strong>.
                   An Information Technology undergraduate specializing in RAG architectures, multi-agent frameworks, time-series forecasting, and rich interface developments.
                 </motion.p>
 
@@ -1700,7 +1700,7 @@ export default function Home() {
                     </div>
                     <h3 style={{ fontSize: "1.45rem", marginBottom: "6px" }} className="gold-gradient-text">Kinjal Rathod</h3>
                     <p style={{ color: "var(--accent-gold-light)", fontSize: "0.88rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "16px" }}>AI & ML Specialist</p>
-                    
+
                     <div style={{ display: "flex", flexDirection: "column", gap: "10px", width: "100%", textAlign: "left", fontSize: "0.92rem", color: "var(--text-secondary)", margin: "16px 0" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid rgba(255,255,255,0.03)", paddingBottom: "6px" }}>
                         <span>Domain:</span>
@@ -1716,7 +1716,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div style={{ display: "flex", gap: "12px", marginTop: "12px" }}>
                     <a href="https://github.com/kinjalr7" target="_blank" rel="noopener noreferrer" className="footer-social-link" title="Kinjal's GitHub Profile" style={{ width: "36px", height: "36px" }}>
                       <GithubIcon size={16} />
@@ -1787,11 +1787,11 @@ export default function Home() {
                     <h3>Who I Am</h3>
                   </div>
                   <p style={{ color: "var(--text-secondary)", marginBottom: "20px", fontSize: "1.02rem" }}>
-                    As an IT student with a strong specialization in Artificial Intelligence and Machine Learning, I look at computing through the lens of automation. 
+                    As an IT student with a strong specialization in Artificial Intelligence and Machine Learning, I look at computing through the lens of automation.
                     I build programs that connect data, compute, and reasoning to resolve real-world complications.
                   </p>
                   <p style={{ color: "var(--text-secondary)", marginBottom: "20px", fontSize: "1.02rem" }}>
-                    My journey bridges data analysis, complex backend microservices, and AI Agent loops that execute tasks autonomously. 
+                    My journey bridges data analysis, complex backend microservices, and AI Agent loops that execute tasks autonomously.
                     Whether optimizing retrieval speed using vector indexing or predicting financial stock directions, I focus on precision.
                   </p>
                 </div>
@@ -1931,8 +1931,8 @@ export default function Home() {
                 transition={{ duration: 0.7 }}
               >
                 <div className="timeline-dot" id="dot-internship-1"></div>
-                <div 
-                  className="glass-card" 
+                <div
+                  className="glass-card"
                   style={{ padding: "32px" }}
                   onMouseMove={handleCardMouseMove}
                   onMouseLeave={handleCardMouseLeave}
@@ -1967,8 +1967,8 @@ export default function Home() {
                 transition={{ duration: 0.7, delay: 0.15 }}
               >
                 <div className="timeline-dot" id="dot-internship-2"></div>
-                <div 
-                  className="glass-card" 
+                <div
+                  className="glass-card"
                   style={{ padding: "32px" }}
                   onMouseMove={handleCardMouseMove}
                   onMouseLeave={handleCardMouseLeave}
@@ -2007,7 +2007,7 @@ export default function Home() {
 
             {/* Aceternity UI Animated Projects Stack Layout */}
             <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.05fr) minmax(0, 0.95fr)", gap: "60px", alignItems: "center" }} className="projects-animated-grid">
-              
+
               {/* Left Column: 3D overlapping card stack (Image frame) */}
               <div style={{ position: "relative", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "440px" }}>
                 <AnimatePresence mode="popLayout">
@@ -2048,8 +2048,8 @@ export default function Home() {
                           borderRadius: "28px",
                           overflow: "hidden",
                           border: "1.5px solid rgba(212, 175, 55, 0.22)",
-                          boxShadow: isActive 
-                            ? "0 25px 55px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.12)" 
+                          boxShadow: isActive
+                            ? "0 25px 55px rgba(0, 0, 0, 0.85), 0 0 35px rgba(212, 175, 55, 0.12)"
                             : "0 15px 35px rgba(0, 0, 0, 0.75)",
                           transformOrigin: "bottom center",
                           background: "var(--bg-tertiary)"
@@ -2107,7 +2107,7 @@ export default function Home() {
 
               {/* Right Column: Title, Role, Summary, Highlights, Stack, and controls */}
               <div style={{ display: "flex", flexDirection: "column", gap: "24px" }} className="project-details-column">
-                
+
                 {/* Active info header */}
                 <motion.div
                   key={`info-${activeProjectIndex}`}
@@ -2528,10 +2528,10 @@ export default function Home() {
                   .filter((b) => (activeBlogCategory as any) === "All" || (b.category as any) === (activeBlogCategory as any))
                   .map((post, _, filteredArray) => {
                     const isAll = (activeBlogCategory as any) === "All";
-                    
+
                     // Render wide horizontal split if under All wide spots, or if a single post is isolated
                     const renderWide = (isAll && (post.id === "nexus-forecasting" || post.id === "edge-ai-offline-nlp")) || filteredArray.length === 1;
-                    
+
                     // Symmetrical column spans: single post spans all 3 cols, wide spans 2, square spans 1
                     let columnSpanStyle = "span 1";
                     if (isAll) {
