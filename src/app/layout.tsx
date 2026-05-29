@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-iota-lemon-l97i0onvsw.vercel.app"),
+  metadataBase: new URL("https://kinjalrathod29.vercel.app"),
   title: "Kinjal Rathod | AI & ML Engineer & Autonomous Agents Specialist",
   description: "Explore the professional portfolio of Kinjal Rathod, an AI/ML Engineer specializing in RAG systems, Autonomous AI Agents (Hermes, Openclaw), Time-Series Forecasting, and Full-Stack AI Dashboards.",
   keywords: [
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kinjal Rathod | AI & ML Engineer Portfolio",
     description: "Professional portfolio of Kinjal Rathod showcasing state-of-the-art AI automation, Agentic frameworks, and predictive modeling.",
-    url: "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+    url: "https://kinjalrathod29.vercel.app",
     siteName: "Kinjal Rathod Portfolio",
     images: [
       {
-        url: "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png",
+        url: "https://kinjalrathod29.vercel.app/assets/hero.png",
         width: 1200,
         height: 630,
         alt: "Kinjal Rathod Portfolio Showcase",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kinjal Rathod | AI & ML Engineer & Autonomous Agents Specialist",
     description: "Explore the professional portfolio of Kinjal Rathod, specializing in RAG, Agentic Loops, and Machine Learning models.",
-    images: ["https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png"],
+    images: ["https://kinjalrathod29.vercel.app/assets/hero.png"],
     creator: "@kinjalr7",
   },
   robots: {
@@ -73,10 +73,10 @@ export default function RootLayout({
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person",
+        "@id": "https://kinjalrathod29.vercel.app/#person",
         "name": "Kinjal Rathod",
-        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
-        "image": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/assets/hero.png",
+        "url": "https://kinjalrathod29.vercel.app",
+        "image": "https://kinjalrathod29.vercel.app/assets/hero.png",
         "sameAs": [
           "https://github.com/kinjalr7",
           "https://www.linkedin.com/in/kinjalrathod2908/"
@@ -102,20 +102,20 @@ export default function RootLayout({
       },
       {
         "@type": "WebSite",
-        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#website",
-        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+        "@id": "https://kinjalrathod29.vercel.app/#website",
+        "url": "https://kinjalrathod29.vercel.app",
         "name": "Kinjal Rathod Portfolio",
         "publisher": {
-          "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person"
+          "@id": "https://kinjalrathod29.vercel.app/#person"
         }
       },
       {
         "@type": "ProfilePage",
-        "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#profilepage",
-        "url": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app",
+        "@id": "https://kinjalrathod29.vercel.app/#profilepage",
+        "url": "https://kinjalrathod29.vercel.app",
         "name": "Kinjal Rathod | AI & ML Engineer & Autonomous Agents Specialist",
         "about": {
-          "@id": "https://portfolio-iota-lemon-l97i0onvsw.vercel.app/#person"
+          "@id": "https://kinjalrathod29.vercel.app/#person"
         }
       }
     ]

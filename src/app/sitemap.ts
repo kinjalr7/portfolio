@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://portfolio-iota-lemon-l97i0onvsw.vercel.app';
+  const baseUrl = 'https://kinjalrathod29.vercel.app';
   
   return [
     {

@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://portfolio-iota-lemon-l97i0onvsw.vercel.app/sitemap.xml',
+    sitemap: 'https://kinjalrathod29.vercel.app/sitemap.xml',
   };
 }
